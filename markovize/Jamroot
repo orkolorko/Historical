@@ -1,0 +1,10 @@
+project invmeasure
+	: 
+	: default-build release
+	;
+
+exe markovize.exe : markovize.cxx boost_serialization srmatrix ;
+
+lib srmatrix : srmatrix.cxx : ;
+lib boost_serialization : : <name>boost_serialization  <search>/usr/lib ;
+
