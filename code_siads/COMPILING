@@ -1,0 +1,20 @@
+First of all, you need Cmake installed and working.
+To compile the program you need PETSC 3.2, BOOST and MPFR for the Ulam version.
+We avoided shipping the programs needing BOOST multiprecision, since 
+it is still not so widespread.
+Anyway, changing to BOOST-multiprecision is really simple (around 20 lines of code) 
+we are going to publish a version using this library on one of our sites.
+
+For the Lipschitz version you need the iRRAM library by Norbert-Mueller
+version 2013-01.
+Before compiling you have to set the enviroment variable
+IRRAM_DIR to the installed directory of the iRRAM,
+example: 
+export IRRAM_DIR=/home/isaia/Dropbox/real/iRRAM_2013_01/installed
+
+Once the set up is done run 
+./cmake CMakeLists.txt
+in the directory and the make all to make the programs.
+
+For the Documentation, run
+./doxygen config.doxy

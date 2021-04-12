@@ -1,0 +1,6 @@
+add_library(rinterval rinterval.cxx)
+add_library(rpartition rpartition.cxx)
+add_library(rapfloat rapfloat.cxx)
+add_library(dynamic dynamic.cxx)
+add_library(eigenrig-L1 eigenrig-L1.cxx)
+add_library(actual-genmatrix-ulam actual-genmatrix-ulam.cxx)

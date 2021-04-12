@@ -1,0 +1,73 @@
+/**
+\mainpage Introduction to the documentation
+
+This documentation refers to two projects, which are now collected in the CompInvMeas
+project.
+
+These two project implement two rigorous algorithms for the computation
+of approximation of invariant measures, respectively in the \subpage Ulam and \subpage Lipschitz framework.
+
+Please note that this programs do not use interval arithmetics, even if some "naive" 
+ideas from interval arithmetics are used, as in the operator + for the \ref rapfloat class.
+
+<H2>Usage of the programs</H2>
+<H3>Markovize</H3>
+The program markovize takes two arguments
+- input the file that contains the input matrix
+- output the file where we write the output matrix
+
+example: ./markovize -input dyn_1_1048576.petsc -output dyn_1_1048576_markovized.petsc 
+
+<H3>genmatrix-ulam</H3>
+This program computes the ulam approximation for the dynamic defined in ulam/dynamic.*
+The program genmatrix-ulam takes one mandatory argument and 4 non mandatory arguments
+- output (mandatory) the name of the output file 
+- size (default 65536) the size of the partition
+- error_exp (default \f$-50\f$) the exponent of the maximum relative length of the intervals which are discarded
+- intreport (default 64) frequency of the output
+- outdebug (default no) whether to print debug informations
+
+example: ./genmatrix-ulam -output dyn_1_1048576 -size 1048576 -error_exp -53
+
+<H3>genmatrix-lipschitz</H3>
+This program computes the ulam approximation for the dynamic defined in lipschitz/dynamic-lipschitz.*
+The program genmatrix-lipschitz takes one mandatory argument and 3 non mandatory arguments
+- output (mandatory) the name of the output file 
+- size (default 65536) the size of the partition
+- intreport (default 64) frequency of the output
+- outdebug (default no) whether to print debug informations
+
+example: ./genmatrix-ulam -output dyn_1_131072 -size 131072
+
+Please note that the use of the iRRAM library ensures that the entries of the matrix are correctly computed up to the
+double precision.
+
+<H3>eigenerr-L1</H3>
+This program computes \f$N\f$ and \f$N_{\epsilon}\f$ and the number of iterates
+necessary to contract the simplex in L1-norm.
+It takes 
+- matrix (mandatory) the file where the matrix is stored
+- output (mandatory) file where the computed eigenvalue is written in text format
+- error (mandatory) the diameter to which we have to contract the simplex
+- errorM (mandatory) the maximum error on the coefficients of the matrix
+- rigerr integer flag that determines whether to compute the rigorous error (set as 1, defaults at 0)
+- start integer flag that determines at which element of the base we start computing
+- iter number of iterates for the power method, in case we do not compute the number of iterates needed 
+	to compute the simplex
+- intreport frequency of the output (defaults at 1024)
+
+<H3>eigenerr-lipschitz</H3>
+This program computes \f$N\f$ and \f$N_{\epsilon}\f$ and the number of iterates
+necessary to contract the simplex in L\f$\infty\f$-norm.
+It takes 
+- matrix (mandatory) the file where the matrix is stored
+- output (mandatory) file where the computed eigenvalue is written in text format
+- error (mandatory) the diameter to which we have to contract the simplex
+- errorM (mandatory) the maximum error on the coefficients of the matrix
+- rigerr integer flag that determines whether to compute the rigorous error (set as 1, defaults at 0)
+- start integer flag that determines at which element of the base we start computing
+- iter number of iterates for the power method, in case we do not compute the number of iterates needed 
+to compute the simplex
+- intreport frequency of the output (defaults at 1024)
+
+*/
